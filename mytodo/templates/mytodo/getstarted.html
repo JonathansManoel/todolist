@@ -1,0 +1,91 @@
+{% extends 'themes/bootstrap-fs/base.html' %}
+
+{% load static %}
+
+{% block content_hero %}
+{% endblock content_hero %}
+
+{% block content %}
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Features</h2>
+          <p>What is built in this template?</p>
+        </header>
+
+        <!-- Feature Icons -->
+        <div class="row feature-icons" data-aos="fade-up">
+
+          <div class="row">
+
+            <div class="col-xl-8 d-flex content">
+              <div class="row align-self-center gy-4">
+
+                <div class="col-md-12 icon-box" data-aos="fade-up">
+                  <i class="ri-user-line"></i>
+                  <div>
+                    <h4><a href="{% url 'mytodo.login' %}">Login</a></h4>
+                    <p>Login page with success page redirect</p>
+                  </div>
+                </div>
+
+                <div class="col-md-12 icon-box" data-aos="fade-up">
+                  <i class="ri-home-2-line"></i>
+                  <div>
+                    <h4><a href="{% url 'mytodo.simple_form' %}">Simple Form</a></h4>
+                    <p>Login form using 3 differents layout</p>
+                  </div>
+                </div>
+
+                <div class="col-md-12 icon-box" data-aos="fade-up">
+                  <i class="ri-home-2-line"></i>
+                  <div>
+                    <h4><a href="{% url 'mytodo.basic_form' %}">Basic Form</a></h4>
+                    <p>Form without Model based fields</p>
+                  </div>
+                </div>
+
+                <div class="col-md-12 icon-box" data-aos="fade-up" data-aos-delay="100">
+                  <i class="ri-home-8-line"></i>
+                  <div>
+                    <h4><a href="{% url 'mytodo.tarefa.list' %}">List of tarefas + CRUD</a></h4>
+                    <p>List, Create, Read, Update and Delete using Class Base View</p>
+                  </div>
+                </div>
+
+                <div class="col-md-12 icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <i class="ri-ancient-gate-line"></i>
+                  <div>
+                    <h4><a href="{% url 'mytodo.tarefa.create' %}">Make an API call: tarefa</a></h4>
+                    <p>Create a new row using CBV</p>
+                  </div>
+                </div>
+
+                <div class="col-md-12 icon-box" data-aos="fade-up" data-aos-delay="400">
+                  <i class="ri-home-smile-2-line"></i>
+                  <div>
+                    <h4>Missing something?</h4>
+                    <p>Add an <a href="https://github.com/huogerac/cookiecutter-djangofloppyforms/issues">Issue</a> in the repo or contribute to it.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-xl-4 text-center" data-aos="fade-right" data-aos-delay="100">
+              <img src="{% static 'themes/bootstrap-fs/img/features-3.png' %}" class="img-fluid p-4" alt="">
+            </div>
+
+          </div>
+
+        </div><!-- End Feature Icons -->
+
+      </div>
+
+    </section><!-- End Features Section -->
+
+{% endblock content %}

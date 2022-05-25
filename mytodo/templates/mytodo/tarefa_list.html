@@ -1,0 +1,78 @@
+{% extends 'themes/bootstrap-fs/base.html' %}
+
+{% load static %}
+{% load floppyforms %}
+
+{% block content_hero %}
+{% endblock content_hero %}
+
+{% block content %}
+
+  <section id="about" class="about">
+  </section>
+
+  <section class="dark-bg" id="signup-login">
+
+    <div class="container p-4">
+      <div class="row gx-0">
+        <div class="col-lg-12 d-flex flex-column justify-content-center" >
+          <div class="content">
+            <h2>My Tarefas</h2>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+  
+      <div class="col-md-1">
+      </div>
+
+      <div class="col-md-10">
+
+        <div class="light-box spaced-box">
+
+          <a 
+          class="btn btn-primary"
+          href="{% url 'mytodo.tarefa.create' %}"><i class="ri-add-box-line"></i> Add tarefa</a>
+          
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Description</th>
+                <th scope="col">Due to</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for tarefa in tarefa_list %}
+                <tr {% if tarefa.done %}class="table-secondary"{% endif%}>
+                  <th scope="row">
+                    <a href="{% url 'mytodo.tarefa.update' tarefa.id %}">{{ tarefa.id }}</a>
+                  </th>
+                  {% if tarefa.done %}
+                  <td><s>{{ tarefa.description }}</s></td>
+                  {% else %}
+                  <td>{{ tarefa.description }}</td>
+                  {% endif %}
+                  <td>{{ tarefa.due_to }}</td>
+                  <td>
+                    <a href="{% url 'mytodo.tarefa.done' tarefa.id %}"><i class="ri-check-double-line"></i></a>
+                    <a href="{% url 'mytodo.tarefa.delete' tarefa.id %}"><i class="ri-delete-bin-5-line"></i></a>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+{% endblock %}
